@@ -29,14 +29,14 @@ app.patch('/api/v1/products/:id', (req, res) => {
              fs.writeFileSync(`${__dirname}/data/product.json`,JSON.stringify(updatedProducts));
              return res.status(200).send({
                     status: "success",
-                    message: `Thank you for purchasing Product ${proId}`,
+                    message: `Thank you for purchasing ${product.name}`,
                     product: product
              })
         }   
         else
         {
               return res.status(404).send(
-                { status: "success", message: `Product ${proId}, Out of stock!`, }
+                { status: "success", message: `${product.name} , Out of stock!`, }
               )
         }  
     }
